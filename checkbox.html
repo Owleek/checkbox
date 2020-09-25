@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .visually-hidden {
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      outline: 0;
+      overflow: hidden;
+      position: absolute;
+      clip: rect(0 0 0 0);
+    }
+
+    .control {
+      padding-left: 40px;
+      display: inline-flex;
+      align-items: center;
+      max-width: 100px;
+      user-select: none;
+    }
+
+    .control__indicator {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      background-color: #32ba7c;
+      border-radius: 4px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .control__indicator::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      top: -4px; right: -4px;
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-image: url(check-mark.svg);
+      display: none;
+    }
+
+    .control__input:checked ~ .control__indicator::before {
+        display: block;
+    }
+
+  </style>
+
+  <label class="control">
+    <input type="checkbox" class="control__input visually-hidden">
+    <span class="control__indicator"></span>
+    checkbox
+  </label>
+</body>
+</html>
